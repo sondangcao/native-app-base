@@ -1,3 +1,47 @@
 {
-  "extends": "@react-native/typescript-config/tsconfig.json"
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "jsx": "react-native",
+    "lib": ["es6"],
+    "moduleResolution": "node",
+    "strictPropertyInitialization": false,
+    "noUnusedLocals": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "strict": true,
+    "baseUrl": "./",
+    "paths": {
+      "@assets": ["src/assets"],
+      "@assets/*": ["src/assets/*"],
+      "@types": ["src/types"],
+      "@types/*": ["src/types/*"],
+      "@screens": ["src/screens"],
+      "@screens/*": ["src/screens/*"],
+      "@navigators": ["src/navigators"],
+      "@navigators/*": ["src/navigators/*"],
+      "@components": ["src/components"],
+      "@components/*": ["src/components/*"],
+      "@configs": ["src/configs"],
+      "@configs/*": ["src/configs/*"],
+      "@services": ["src/services"],
+      "@services/*": ["src/services/*"],
+      "@constant": ["src/constant"],
+      "@constant/*": ["src/constant/*"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js"
+  ]
 }

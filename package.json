@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "react": "19.0.0",
-    "react-native": "0.78.0"
+    "react-native": "0.78.0",
+    "@react-navigation/native": "^6.1.8",
+    "@react-navigation/native-stack": "^6.9.14"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
