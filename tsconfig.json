@@ -3,7 +3,9 @@
     "target": "esnext",
     "module": "commonjs",
     "jsx": "react-native",
-    "lib": ["es6"],
+    "lib": [
+      "es6"
+    ],
     "moduleResolution": "node",
     "strictPropertyInitialization": false,
     "noUnusedLocals": true,
@@ -20,22 +22,54 @@
     "strict": true,
     "baseUrl": "./",
     "paths": {
-      "@assets": ["src/assets"],
-      "@assets/*": ["src/assets/*"],
-      "@types": ["src/types"],
-      "@types/*": ["src/types/*"],
-      "@screens": ["src/screens"],
-      "@screens/*": ["src/screens/*"],
-      "@navigators": ["src/navigators"],
-      "@navigators/*": ["src/navigators/*"],
-      "@components": ["src/components"],
-      "@components/*": ["src/components/*"],
-      "@configs": ["src/configs"],
-      "@configs/*": ["src/configs/*"],
-      "@services": ["src/services"],
-      "@services/*": ["src/services/*"],
-      "@constant": ["src/constant"],
-      "@constant/*": ["src/constant/*"]
+      "@assets": [
+        "src/assets"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@types": [
+        "src/types"
+      ],
+      "@types/*": [
+        "src/types/*"
+      ],
+      "@screens": [
+        "src/screens"
+      ],
+      "@screens/*": [
+        "src/screens/*"
+      ],
+      "@navigators": [
+        "src/navigators"
+      ],
+      "@navigators/*": [
+        "src/navigators/*"
+      ],
+      "@components": [
+        "src/components"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@configs": [
+        "src/configs"
+      ],
+      "@configs/*": [
+        "src/configs/*"
+      ],
+      "@services": [
+        "src/services"
+      ],
+      "@services/*": [
+        "src/services/*"
+      ],
+      "@constant": [
+        "src/constant"
+      ],
+      "@constant/*": [
+        "src/constant/*"
+      ],
     }
   },
   "exclude": [
