@@ -20,7 +20,7 @@ const HomeScreenStack = () => {
         headerShown: false,
       }}>
       <HomeStack.Screen
-        name="Home"
+        name="home"
         options={{headerShown: false}}
         component={HomeScreen}
       />
