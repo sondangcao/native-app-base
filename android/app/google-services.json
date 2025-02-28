@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "281254271515",
+    "project_id": "party-notification-31d23",
+    "storage_bucket": "party-notification-31d23.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:281254271515:android:898af0c457625c688436be",
+        "android_client_info": {
+          "package_name": "com.nativeAppBase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXdKku5ukwWDIlhIX3P-10lAslJK0loTw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
