@@ -10,6 +10,8 @@ import AppNavigation from './src/navigation';
 import messaging from '@react-native-firebase/messaging';
 import firebase from '@react-native-firebase/app';
 import {PermissionsAndroid, Platform} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import notifee, {EventType} from '@notifee/react-native';
 
 function App(): JSX.Element {
   const firebaseConfig = {
@@ -28,33 +30,67 @@ function App(): JSX.Element {
     firebase.initializeApp(firebaseConfig);
   }
 
-  // async function requestUserPermission() {
-  //   const authStatus = await messaging().requestPermission();
-  //   const enabled =
-  //     authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
-  //     authStatus === messaging.AuthorizationStatus.PROVISIONAL;
-
-  //   if (enabled) {
-  //     console.log('Authorization status:', authStatus);
-  //   }
-  // }
+  async function requestUserPermission() {
+    await messaging().requestPermission();
+  }
 
   async function requestPermission() {
     if (Platform.OS === 'android') {
-      const granted = await PermissionsAndroid.request(
+      await notifee.requestPermission();
+      await PermissionsAndroid.request(
         PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS,
       );
-      console.log('Notification permission:', granted);
     }
   }
 
+  useEffect(() => {
+    // Khi user nhận thông báo lúc app đang mở (foreground)
+    const unsubscribe = messaging().onMessage(async remoteMessage => {
+      console.log('📢 Received FCM Notification (Foreground):', remoteMessage);
+    });
+
+    return unsubscribe;
+  }, []);
+
+  useEffect(() => {
+    // Lắng nghe sự kiện khi user nhấn vào notification
+    return notifee.onForegroundEvent(({type, detail}) => {
+      console.log('📢 Notifee Event Triggered:', type, detail);
+      if (type === EventType.PRESS) {
+        console.log('🔔 User clicked notification:', detail.notification);
+      }
+    });
+  }, []);
+
+  // async function bootstrap() {
+  //   const initialNotification = await notifee.getInitialNotification();
+
+  //   if (initialNotification) {
+  //     console.log(
+  //       'Notification caused application to open',
+  //       initialNotification.notification,
+  //     );
+  //     console.log(
+  //       'Press action used to open the app',
+  //       initialNotification.pressAction,
+  //     );
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   bootstrap()
+  //     .then(() => console.log('user co bam vao event xem noti k'))
+  //     .catch(console.error);
+  // }, []);
+
   const getToken = async () => {
     const token = await messaging().getToken();
-    console.log('token', token);
+    await AsyncStorage.setItem('token-device', token);
   };
 
   useEffect(() => {
     requestPermission();
+    requestUserPermission();
     getToken();
   }, []);
 

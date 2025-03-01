@@ -22,8 +22,6 @@ axiosClient.interceptors.request.use(
       config.headers.Authorization = token;
     }
 
-    console.log('config', config);
-
     return config;
   },
   error => {
