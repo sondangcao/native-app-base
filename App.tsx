@@ -43,14 +43,23 @@ function App(): JSX.Element {
     }
   }
 
-  useEffect(() => {
-    // Khi user nhận thông báo lúc app đang mở (foreground)
-    const unsubscribe = messaging().onMessage(async remoteMessage => {
-      console.log('📢 Received FCM Notification (Foreground):', remoteMessage);
-    });
+  // useEffect(() => {
+  //   // Khi user nhận thông báo lúc app đang mở (foreground)
+  //   const unsubscribe = messaging().onMessage(async remoteMessage => {
+  //     console.log('📢 Received FCM Notification (Foreground):', remoteMessage);
+  //     // try {
+  //     //   await notifee.displayNotification({
+  //     //     title: remoteMessage.data?.title ?? 'Thông báo mới',
+  //     //     body: remoteMessage.data?.body ?? '',
+  //     //     android: {channelId: 'default'},
+  //     //   });
+  //     // } catch (error) {
+  //     //   console.error('🔥 Notifee Error:', error);
+  //     // }
+  //   });
 
-    return unsubscribe;
-  }, []);
+  //   return unsubscribe;
+  // }, []);
 
   useEffect(() => {
     // Lắng nghe sự kiện khi user nhấn vào notification
